@@ -57,8 +57,8 @@ class Delegator(object):
         self.logger = logger
         self.STEEM_PER_VEST = vesting_steem / vesting_shares
         self.TARGET_VESTS = self.TARGET_SP / self.STEEM_PER_VEST
-        self.MIN_VESTS_DELTA = account_creation_fee / self.STEEM_PER_VEST
-        self.MIN_VESTS = self.MIN_VESTS_DELTA * 10
+        self.MIN_VESTS_DELTA = (account_creation_fee / 30) / self.STEEM_PER_VEST
+        self.MIN_VESTS = (account_creation_fee / 3) / self.STEEM_PER_VEST
 
     def get_delegated_accounts(self, account, last_idx=''):
         results = self.steem.get_vesting_delegations(
