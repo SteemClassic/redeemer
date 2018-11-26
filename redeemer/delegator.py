@@ -13,7 +13,6 @@ def amount(steem_amount):
 
 def inactive_days(account):
     last_action_date = max(
-        account['last_bandwidth_update'],
         account['created'],
         account['last_post'],
         account['last_vote_time'])
