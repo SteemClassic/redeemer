@@ -34,7 +34,7 @@ class Delegator(object):
             deplorables=None):
         if steem is None:
             dry_run = True
-            self.steem = Steem(nodes=['https://api.steemit.com'])
+            self.steem = Steem(nodes=['https://api-internal.steemit.com'])
         else:
             self.steem = steem
 
