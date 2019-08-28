@@ -85,13 +85,13 @@ class Delegator(object):
 
         if name in self.deplorables:
             new_delegated_vests = 0
-        elif account_vests >= self.TARGET_VESTS:
+        elif account_vests >= self.TARGET_VESTS * 2:
             new_delegated_vests = 0
         elif inactive_days(acct) > 90:
             _inactive_target = self.TARGET_VESTS / 3 - account_vests
             new_delegated_vests = max(self.MIN_VESTS, _inactive_target)
         else:
-            new_delegated_vests = self.TARGET_VESTS - account_vests
+            new_delegated_vests = self.TARGET_VESTS - account_vests / 2
 
         skip_increase = (amount(acct['vesting_withdraw_rate']) > 0.000001
                          or int(acct['withdrawn']) > 0
